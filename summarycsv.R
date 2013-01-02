@@ -3,7 +3,7 @@
 require(RCurl)
 require(XML)
 
-# Our UKHR login credentials. Later we will move these to a separate config file
+# Our UKHR login credentials. Later we will move these to a separate config file.
 
 ukhrusername = "yourukhrusername"
 ukhrpassword = "yourukhrpassword"
