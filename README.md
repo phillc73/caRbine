@@ -27,6 +27,7 @@ Start R, by typing:
 Within the R interpreter. We'll need to install some libraries from CRAN:
 
 > install.packages(RCurl)
+
 > install.packages (XML)
 
 Exit R with:
@@ -49,14 +50,18 @@ Execute the script, from the command line:
 This will execute the script. The current directory will need to be writeable, and a few new files will appear in there:
 
 a) currentdayID.xml – this file contains the obsfucated ID for the day, which is used to “hide” the URL for downloading files each day from the UKHR website.
+
 b) summarycsv.Rout  - if you open this in a text editor it will show you the output of running the R script. It's a good places to look for any errors.
+
 c) summaryCSV.csv – the summary CSV for the day. The file we've been looking for!
 
 These scripts can be run using Cron, and should be run after midnight to ensure the dates are all correct
 
-To Do:
+TO DO:
 ======
 
 a) Develop further scripts to download historic data from the UKHR website and build a database of this data
+
 b) Develop further scripts to interogate the data to find new profitable systems
+
 c) Develop further scripts to automatically place bets
