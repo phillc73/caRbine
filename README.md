@@ -1,7 +1,7 @@
 caRbine
 =======
 
-A set of R scripts for autmated horse racing actions. These scripts are designed to work with the data provided by the UK Horse Racing website - http://www.ukhorseracing.co.uk. You will need a subscription to this website for these scripts to work.
+A set of R scripts for automated horse racing actions. These scripts are designed to work with the data provided by the UK Horse Racing website - http://www.ukhorseracing.co.uk. You will need a subscription to this website for these scripts to work.
 
 INSTALL
 =======
@@ -47,7 +47,7 @@ Execute the script, from the command line:
 
 > R CMD BATCH summarcsv.R
 
-This will execute the script. The current directory will need to be writeable, and a few new files will appear in there:
+This will execute the script. The current directory will need to be writeable, and a few new files will appear in there.
 
 missioncsv.R and summarycsv.R:
 
