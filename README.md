@@ -49,6 +49,8 @@ Execute the script, from the command line:
 
 This will execute the script. The current directory will need to be writeable, and a few new files will appear in there:
 
+missioncsv.R and summarycsv.R:
+
 a) currentdayID.xml – this file contains the obsfucated ID for the day, which is used to “hide” the URL for downloading files each day from the UKHR website.
 
 b) summarycsv.Rout  - if you open this in a text editor it will show you the output of running the R script. It's a good places to look for any errors.
@@ -56,6 +58,10 @@ b) summarycsv.Rout  - if you open this in a text editor it will show you the out
 c) summaryCSV.csv – the summary CSV for the day. The file we've been looking for!
 
 These scripts can be run using Cron, and should be run after midnight to ensure the dates are all correct
+
+historic_mission_subset.R:
+
+This script extracts specific Mission selections from the UK Horse Racing provided monthly result summary file. Script does not require entry of username or password. Mission name and monthly CSV filename must be added. Script is full commented.
 
 TO DO:
 ======
