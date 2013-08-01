@@ -67,7 +67,7 @@ markpor_subset.R:
 
 This script extracts specific selections based on Markpor's Trainers' Form and various paired top ranking Underscores (past form indicators). This system was developed from discussion on the UKHR Google Group and has shown a strong positive return, both historically prior to June 30th, 2013 and as a live system with over 55 bets in July 2013. 
 
-This scripts will contain duplicate lines, if a horse qualifies on multiple Underscore pairings, which will be useful if you wish to be once for each match. 
+This script will contain duplicate lines if a horse qualifies on multiple Underscore pairings, which will be useful if you wish to be once for each match. 
 
 This can be used in conjunction with summarycsv.R on the current day's UKHR CSV data. However, it can be used standalone, but the daily CSV filename should be changed to match the relevant local filename.
 
