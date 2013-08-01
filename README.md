@@ -49,8 +49,8 @@ Execute the script, from the command line:
 
 This will execute the script. The current directory will need to be writeable, and a few new files will appear in there.
 
-summarycsv.R:
--------------
+###### summarycsv.R:
+
 
 This script downloads the daily summary CSV file from the UKHR website, and can be used to extract certain Mission qualifiers.
 
@@ -62,19 +62,19 @@ c) summaryCSV.csv – the summary CSV for the day. The file we've been looking f
 
 These scripts can be run using Cron, and should be run after midnight to ensure the dates are all correct
 
-missioncsv.R:
--------------
+###### missioncsv.R:
+
 
 This script extracts specific Mission qualifiers for the day. Insert the relevant Mission name into the script where indicated. 
 
 
-historic_mission_subset.R:
---------------------------
+###### historic_mission_subset.R:
+
 
 This script extracts specific Mission selections from the UK Horse Racing provided monthly result summary file. Script does not require entry of username or password. Mission name and monthly CSV filename must be added. Script is fully commented.
 
-markpor_subset.R:
------------------
+###### markpor_subset.R:
+
 
 This script extracts specific selections based on Markpor's Trainers' Form and various paired top ranking Underscores (past form indicators). This system was developed from discussion on the UKHR Google Group and has shown a strong positive return, both historically prior to June 30th, 2013 and as a live system with over 55 bets in July 2013. 
 
