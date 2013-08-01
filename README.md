@@ -63,6 +63,10 @@ historic_mission_subset.R:
 
 This script extracts specific Mission selections from the UK Horse Racing provided monthly result summary file. Script does not require entry of username or password. Mission name and monthly CSV filename must be added. Script is full commented.
 
+markpor_subset.R:
+
+This script extract specific selections based on Markpor's Trainers' Form and various paired top ranking Underscores (past form indicators). This system was developed from discussion on the UKHR Google Group and has shown a strong positive return, both historically prior to June 30th, 2013 and as a live system with over 225 bets in July 2013. This scripts will contain duplicate lines, if a horse qualifies on multiple Underscore pairings, which will be useful if you wish to be once for each match. This script was developed from the earlier missionCSV.R script.
+
 TO DO:
 ======
 
