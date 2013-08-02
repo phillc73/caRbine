@@ -42,8 +42,6 @@ jockey_lst <- subset(newmission_subset, newmission_subset$JockeyRanking==1 & new
 
 trform_winf <- subset(newmission_subset, newmission_subset$TrFormRanking==1 & newmission_subset$WinFRanking==1)
 
-scheduled_time, course, name, trainer_name.x, trainer_AE, jockey_name.x, jockey_AE))
-
 # Bind all the dataframes together. There is probably a better way to do this.
 
 daily_data <- rbind(cls_winf, cls_trainer)
