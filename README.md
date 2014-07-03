@@ -45,7 +45,7 @@ Open the script in a text editor and insert your UKHR username and password,  on
 
 Execute the script, from the command line:
 
-> R CMD BATCH summarcsv.R
+> R CMD BATCH summarycsv.R
 
 This will execute the script. The current directory will need to be writeable, and a few new files will appear in there.
 
