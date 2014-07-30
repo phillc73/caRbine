@@ -1,10 +1,10 @@
 caRbine
 =======
 
-A set of R scripts for automated horse racing actions. These scripts are designed to work with the data provided by the UK Horse Racing website - http://www.ukhorseracing.co.uk. You will need a subscription to this website for these scripts to work.
+A set of R scripts for automated horse racing actions. Most of these scripts are designed to work with the data provided by the UK Horse Racing website - http://www.ukhorseracing.co.uk. You will need a subscription to this website for these scripts to work.
 
-INSTALL
-=======
+INSTALL R
+=========
 
 To begin with, install R. All instructions below will be Linux focused, if you want to do this on Windows you'll need to figure it out yourself. 
 
@@ -81,6 +81,15 @@ This script extracts specific selections based on Markpor's Trainers' Form and v
 This script will contain duplicate lines if a horse qualifies on multiple Underscore pairings, which will be useful if you wish to bet once for each matching underscore pairing. 
 
 This script can be used in conjunction with summarycsv.R on the current day's UKHR CSV data. However, it can be used standalone, but the daily CSV filename should be changed to match the relevant local filename.
+
+###### TurfTraxSectionals.R
+
+A script to perform actions on sectional timing data provided by TurfTrax for UK racing. For more information see:
+
+http://starkingdom.co.uk/2014/07/18/sectionals-with-r/
+http://starkingdom.co.uk/2014/07/20/visualising-sectionals-with-r/
+http://starkingdom.co.uk/2014/07/29/more-glorious-sectionals/
+
 
 TO DO:
 ======
