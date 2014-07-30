@@ -87,7 +87,9 @@ This script can be used in conjunction with summarycsv.R on the current day's UK
 A script to perform actions on sectional timing data provided by TurfTrax for UK racing. For more information see:
 
 http://starkingdom.co.uk/2014/07/18/sectionals-with-r/
+
 http://starkingdom.co.uk/2014/07/20/visualising-sectionals-with-r/
+
 http://starkingdom.co.uk/2014/07/29/more-glorious-sectionals/
 
 
