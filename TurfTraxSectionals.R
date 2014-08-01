@@ -101,6 +101,8 @@ originalcsv$EnergyRank <- rank(originalcsv$EnergyDist)
 
 FinalSectionals <- subset(originalcsv, select=c(Horse, FinPercent))
 
+FinalSectionals$FinPercent <- round(FinalSectionals$FinPercent, 3)
+
 # Final Percent rankings and rivals beaten
 
 FinalSectionals$FinRank <- rank (-FinalSectionals$FinPercent)
@@ -122,6 +124,8 @@ SustSectionals <- SustSectionals[order(SustSectionals$SustPercent),]
 # Energy Distribution and ranking, adding to Final Sectionals variable
 
 FinalSectionals$EnergyDist <- (SustSectionals$SustPercent / FinalSectionals$FinPercent)^2
+
+FinalSectionals$EnergyDist <- round(FinalSectionals$EnergyDist, 3)
 
 FinalSectionals$EnergyRank <- rank(FinalSectionals$EnergyDist)
 
