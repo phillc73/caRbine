@@ -4,11 +4,11 @@ require(ggplot2)
 require(reshape2)
 
 # Set working directory 
-setwd("~/directory/of/csv/file/here")
+setwd("~/directory/of/csv/files/jere")
 
 # Load CSV file. Name needs updating each time.
 
-csvfilename <- "changetocorrectfilename.csv"
+csvfilename <- "nameofcsvfiletoload.csv"
 
 originalcsv <- read.csv(file=csvfilename, sep=",", header=TRUE, fileEncoding="latin1") 
 
@@ -19,7 +19,7 @@ PlotData <- within(originalcsv, rm(Draw))
 
 # Use melt from reshape2 libraruy to convert data from long to wide
 
-PlotData <- melt(PlotData, id.vars=c("Horse"), variable.name="Furlong",value.name="Time")
+PlotData <- melt(PlotData, id.vars=c("Horse"), variable.name="Furlongs",value.name="Time")
 
 # Remove the Xs from the furlong distances. This occured when they were column names. R doesn't like numbers starting column names.
 
@@ -77,9 +77,11 @@ originalcsv$SectTimeEarly <- rowSums(originalcsv[ , 3:SectDistEarly[1]])
 
 originalcsv$SectTimeSust <- rowSums(originalcsv[ , 3:SectColCount[1]])
 
-# Calculate final sectional percentages
+# Calculate final sectional percentages and rank
 
 originalcsv$FinPercent <- (originalcsv$TotTime*originalcsv$SectDist*100)/(originalcsv$Dist*originalcsv$SectTimeLate) 
+
+originalcsv$FinRank <- rank (-originalcsv$FinPercent)
 
 # Calculate early sectionals percentages
 
@@ -89,11 +91,19 @@ originalcsv$EarlyPercent <- (originalcsv$TotTime*originalcsv$SectDist*100)/(orig
 
 originalcsv$SustPercent <- (originalcsv$TotTime*(originalcsv$Dist-originalcsv$SectDist)*100)/(originalcsv$Dist*originalcsv$SectTimeSust) 
 
-# Hold just final sectionals in new variable
+# Calculate and rank Energy Distribution
+
+originalcsv$EnergyDist <- (SustSectionals$SustPercent * SustSectionals$SustPercent) / (FinalSectionals$FinPercent * FinalSectionals$FinPercent)
+
+originalcsv$EnergyRank <- rank(originalcsv$EnergyDist)
+
+# Hold just final sectionals in new variable for easy display on screen.
 
 FinalSectionals <- subset(originalcsv, select=c(Horse, FinPercent))
 
-FinalSectionals
+# Final Percent rankings and rivals beaten
+
+FinalSectionals$FinRank <- rank (-FinalSectionals$FinPercent)
 
 # Hold just early sectionals, ordered by highest first, in new variable
 
@@ -103,16 +113,30 @@ EarlySectionals$Horse <- as.character(EarlySectionals$Horse)
 
 EarlySectionals <- EarlySectionals[order(-EarlySectionals$EarlyPercent),]
 
-EarlySectionals
-
 # Hold just sustained sectionals, ordered by highest first, in new variable
 
 SustSectionals <- subset(originalcsv, select=c(Horse, SustPercent))
 
 SustSectionals <- SustSectionals[order(SustSectionals$SustPercent),]
 
+# Energy Distribution and ranking, adding to Final Sectionals variable
+
+FinalSectionals$EnergyDist <- (SustSectionals$SustPercent / FinalSectionals$FinPercent)^2
+
+FinalSectionals$EnergyRank <- rank(FinalSectionals$EnergyDist)
+
+# Display data on screen
+
+EarlySectionals
+
 SustSectionals
 
-# Write out new CSV file
+FinalSectionals
 
-write.csv(originalcsv, file=csvfilename, quote=TRUE, row.names=FALSE) 
+# Write out new CSV file with edited filename. This will retain original CSV in unamended form.
+
+newcsvfilename <- gsub(".csv", "", csvfilename)
+
+newcsvfilename <- paste(newcsvfilename,"Calcs",".csv",sep = "")
+
+write.csv(originalcsv, file=newcsvfilename, quote=TRUE, row.names=FALSE) 
