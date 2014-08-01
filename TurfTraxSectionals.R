@@ -4,7 +4,7 @@ require(ggplot2)
 require(reshape2)
 
 # Set working directory 
-setwd("~/directory/of/csv/files/jere")
+setwd("~/directory/of/csv/files/here")
 
 # Load CSV file. Name needs updating each time.
 
@@ -19,7 +19,7 @@ PlotData <- within(originalcsv, rm(Draw))
 
 # Use melt from reshape2 libraruy to convert data from long to wide
 
-PlotData <- melt(PlotData, id.vars=c("Horse"), variable.name="Furlongs",value.name="Time")
+PlotData <- melt(PlotData, id.vars=c("Horse"), variable.name="Furlong",value.name="Time")
 
 # Remove the Xs from the furlong distances. This occured when they were column names. R doesn't like numbers starting column names.
 
