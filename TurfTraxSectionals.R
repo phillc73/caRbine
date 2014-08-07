@@ -4,13 +4,13 @@ require(ggplot2)
 require(reshape2)
 
 # Set working directory 
-setwd("~/directory/of/csv/files/here")
+setwd("~/documents/Horse Racing/Sectionals")
 
 # Load CSV file. Name needs updating each time.
 
-csvfilename <- "nameofcsvfiletoload.csv"
+csvfilename <- "GoodwoodAug1Race4.csv"
 
-originalcsv <- read.csv(file=csvfilename, sep=",", header=TRUE, fileEncoding="latin1") 
+originalcsv <- read.csv(file=csvfilename, sep=",", header=TRUE, fileEncoding="latin1")
 
 # Stuff for the plotting
 # Remove Draw column
@@ -33,7 +33,7 @@ ggplot(data=PlotData, aes(x=Furlong, y=Time, colour=Horse, group=Horse)) + geom_
 
 picfilename <- substring(csvfilename, 1, nchar(csvfilename)-4)
 
-picfilename <- paste(picfilename,".jpg", sep="") 
+picfilename <- paste(picfilename,".jpg", sep="")
 
 ggsave(file=picfilename)
 
@@ -79,23 +79,17 @@ originalcsv$SectTimeSust <- rowSums(originalcsv[ , 3:SectColCount[1]])
 
 # Calculate final sectional percentages and rank
 
-originalcsv$FinPercent <- (originalcsv$TotTime*originalcsv$SectDist*100)/(originalcsv$Dist*originalcsv$SectTimeLate) 
+originalcsv$FinPercent <- (originalcsv$TotTime*originalcsv$SectDist*100)/(originalcsv$Dist*originalcsv$SectTimeLate)
 
 originalcsv$FinRank <- rank (-originalcsv$FinPercent)
 
 # Calculate early sectionals percentages
 
-originalcsv$EarlyPercent <- (originalcsv$TotTime*originalcsv$SectDist*100)/(originalcsv$Dist*originalcsv$SectTimeEarly) 
+originalcsv$EarlyPercent <- (originalcsv$TotTime*originalcsv$SectDist*100)/(originalcsv$Dist*originalcsv$SectTimeEarly)
 
 # Calculate sustained sectionals percentages
 
-originalcsv$SustPercent <- (originalcsv$TotTime*(originalcsv$Dist-originalcsv$SectDist)*100)/(originalcsv$Dist*originalcsv$SectTimeSust) 
-
-# Calculate and rank Energy Distribution
-
-originalcsv$EnergyDist <- (SustSectionals$SustPercent * SustSectionals$SustPercent) / (FinalSectionals$FinPercent * FinalSectionals$FinPercent)
-
-originalcsv$EnergyRank <- rank(originalcsv$EnergyDist)
+originalcsv$SustPercent <- (originalcsv$TotTime*(originalcsv$Dist-originalcsv$SectDist)*100)/(originalcsv$Dist*originalcsv$SectTimeSust)
 
 # Hold just final sectionals in new variable for easy display on screen.
 
@@ -128,6 +122,12 @@ FinalSectionals$EnergyDist <- (SustSectionals$SustPercent / FinalSectionals$FinP
 FinalSectionals$EnergyDist <- round(FinalSectionals$EnergyDist, 3)
 
 FinalSectionals$EnergyRank <- rank(FinalSectionals$EnergyDist)
+
+# Add Energy Distribution to Original CSV
+
+originalcsv$EnergyDist <- FinalSectionals$EnergyDist
+
+originalcsv$EnergyRank <- rank(originalcsv$EnergyDist)
 
 # Display data on screen
 
