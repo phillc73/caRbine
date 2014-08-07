@@ -4,11 +4,11 @@ require(ggplot2)
 require(reshape2)
 
 # Set working directory 
-setwd("~/documents/Horse Racing/Sectionals")
+setwd("~/set/working/directory/here")
 
 # Load CSV file. Name needs updating each time.
 
-csvfilename <- "GoodwoodAug1Race4.csv"
+csvfilename <- "changetorelevantfilename.csv"
 
 originalcsv <- read.csv(file=csvfilename, sep=",", header=TRUE, fileEncoding="latin1")
 
