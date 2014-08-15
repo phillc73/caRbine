@@ -92,6 +92,12 @@ http://starkingdom.co.uk/2014/07/20/visualising-sectionals-with-r/
 
 http://starkingdom.co.uk/2014/07/29/more-glorious-sectionals/
 
+##### sqliteexample.R
+
+A script to create an SQLite database using a CSV file, from within R. For more information see:
+
+http://starkingdom.co.uk/2014/08/15/creating-an-sqlite-database-with-r/
+
 
 TO DO:
 ======
