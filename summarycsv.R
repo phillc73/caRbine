@@ -40,5 +40,6 @@ todaysummaryCSV <- getURL(todaysummaryURL)
 # Convert large character to dataframe and then write to CSV
 
 todaysummary_df <- read.csv(text = todaysummaryCSV)
-write.csv(todaysummary_df, file = "summaryCSV.csv", row.names = FALSE)
 
+filename <- paste("summaryCSV_",datetoday,".csv", sep="")
+write.csv(todaysummary_df, file = filename, row.names = FALSE)
