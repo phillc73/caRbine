@@ -35,6 +35,10 @@ vop14$Edge <- vop14$BetFairSPForecastWinPrice / vop14$ValueOdds_BetfairFormat
 # Remove those with edge less than 1. That is Forecast BSP is lower than Probability decimal
 vop14 <- dplyr::filter(vop14, Edge >= 1.00)
 
+# Remove those with edge greater than 3. 
+vop14_Edge3plus <- dplyr::filter(vop14, Edge >= 3.00)
+vop14 <- dplyr::filter(vop14, Edge <= 3.00)
+
 # Find the Median edge for the day and filter for only qualifiers above the median
 vop14_median <- median(vop14$Edge)
 
